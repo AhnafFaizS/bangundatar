@@ -18,7 +18,10 @@ final PersegiController _persegiController=Get.put(PersegiController());
             child: Text("persegi",style: TextStyle(color: Colors.white),
             ),
           ),
-            Padding(
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.green.shade300, borderRadius: BorderRadius.all(Radius.circular(10))
+              ),
               padding: const EdgeInsets.all(8.0),
               child: Text(
                 "Turunan dari segi empat yang mempunyai ciri khusus keempat sisinya sama panjang dan keempat sudutnya siku-siku (90°)."
@@ -48,22 +51,25 @@ final PersegiController _persegiController=Get.put(PersegiController());
                       borderRadius: BorderRadius.all(Radius.circular(10)))),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: ElevatedButton(onPressed: (){
-              _persegiController.hitungLuas();
-            }, child: Text("Hitung Luas",style: TextStyle(color: Colors.green.shade300),)),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: ElevatedButton(onPressed: (){
-              _persegiController.hitungKeliling();
-            }, child: Text("Hitung Keliling",style: TextStyle(color:  Colors.blue.shade300),)),
-          ),
-          Obx(() => Text(_persegiController.hasil.value, style: TextStyle(color: _persegiController.warna.value),))
+          Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ElevatedButton(onPressed: (){
+                  _persegiController.hitungLuas();
+                }, child: Text("Hitung Luas",style: TextStyle(color: Colors.green.shade300),)),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ElevatedButton(onPressed: (){
+                  _persegiController.hitungKeliling();
+                }, child: Text("Hitung Keliling",style: TextStyle(color:  Colors.blue.shade300),)),
+              ),
+              Obx(() => Text(_persegiController.hasil.value, style: TextStyle(color: _persegiController.warna.value),))
+            ],
+          )
         ],
       ),
-
     );
   }
 }

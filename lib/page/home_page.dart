@@ -1,4 +1,7 @@
+import 'package:bangun_datar_kelas_b_ahnap/page/belah_ketupat_page.dart';
 import 'package:bangun_datar_kelas_b_ahnap/page/persegi_page.dart';
+import 'package:bangun_datar_kelas_b_ahnap/page/persegipanjang_page.dart';
+import 'package:bangun_datar_kelas_b_ahnap/page/segitiga_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -16,20 +19,30 @@ class HomePage extends StatelessWidget {
         children: [
           Row(
             children: [
-              CustomMenu(imageAsset: "assets/segitiga.jpeg", title: "Segitiga"),
-              CustomMenu(imageAsset: "assets/segitiga.jpeg", title: "Segitiga"),
-              
-              Expanded(child: CustomMenu(imageAsset: "assets/persegi.jpeg", title: "Persegi")),
               Expanded(child: InkWell(
                 onTap: (){
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context)=>PersegiPage()));
+                  Navigator.push((context), MaterialPageRoute(builder: (context)=>SegitigaPage()));
+                },
+              child: CustomMenu(imageAsset: "assets/segitiga.jpeg", title: "Segitiga"))),
+
+              Expanded(child: InkWell(
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => PersegiPage()));
                 },
               child: CustomMenu(imageAsset: "assets/persegi.jpeg", title: "Persegi"))),
             ],
           ),
-          CustomMenu(imageAsset: "assets/persegipanjang.jpeg", title: "PersegiPanjang"),
-          CustomMenu(imageAsset: "assets/lingkaran.jpeg", title: "Lingkaran"),
+          Expanded(child: InkWell(
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>Persegipanjang()));
+            },
+          child: CustomMenu(imageAsset: "assets/persegipanjang.jpeg", title: "PersegiPanjang"))),
+
+          Expanded(child: InkWell(
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>BelahKetupat()));
+              },
+              child: CustomMenu(imageAsset: "assets/lingkaran.jpeg", title: "Lingkaran"))),
         ],
       ),
     );
@@ -48,10 +61,10 @@ final String title;
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 10,vertical: 8),
         color: Colors.green.shade200,
-        padding: EdgeInsets.symmetric(horizontal: 18,vertical: 8),
+        padding: EdgeInsets.symmetric(horizontal: 10,vertical: 8),
         child: Column(
           children: [
-            Image.asset(imageAsset,height: 100,),
+            Image.asset(imageAsset,height: 250,),
             Text(title,style: TextStyle(color: Colors.white)),
           ],
         ));
