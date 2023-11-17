@@ -1,3 +1,4 @@
+import 'package:bangun_datar_kelas_b_ahnap/page/persegi_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -19,7 +20,12 @@ class HomePage extends StatelessWidget {
               CustomMenu(imageAsset: "assets/segitiga.jpeg", title: "Segitiga"),
               
               Expanded(child: CustomMenu(imageAsset: "assets/persegi.jpeg", title: "Persegi")),
-              Expanded(child: CustomMenu(imageAsset: "assets/persegi.jpeg", title: "Persegi")),
+              Expanded(child: InkWell(
+                onTap: (){
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context)=>PersegiPage()));
+                },
+              child: CustomMenu(imageAsset: "assets/persegi.jpeg", title: "Persegi"))),
             ],
           ),
           CustomMenu(imageAsset: "assets/persegipanjang.jpeg", title: "PersegiPanjang"),
